@@ -73,7 +73,7 @@ from PySide6 import QtCore, QtGui, QtSql
 from PySide6.QtCore import Qt
 # from PySide6.QtGui import QMainWindow, qApp, QMessageBox, QApplication, QColor, QFileDialog
 from PySide6.QtGui import QColor
-from PySide6.QtWidgets import (QMainWindow, qApp, QMessageBox, QApplication, QFileDialog)
+from PySide6.QtWidgets import (QMainWindow, QMessageBox, QApplication, QFileDialog)
 from PySide6.QtSql import QSqlTableModel, QSqlDatabase, QSqlQuery
 
 from editor import Editor
@@ -454,8 +454,8 @@ class MyWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.db.setDatabaseName(self.databasePath)
         
         if not self.db.open():
-            QtGui.QMessageBox.critical(None, QtGui.qApp.tr("Verbindungsfehler"),
-                                   QtGui.qApp.tr("Konnte keine Verbindung mit Datenbank herstellen.\n"
+            QtGui.QMessageBox.critical(None, QApplication.tr("Verbindungsfehler"),
+                                   QApplication.tr("Konnte keine Verbindung mit Datenbank herstellen.\n"
                                    "Bitte wenden sie sich an den Programmierer!"
                                    ""
                                    "\n\nZum Beenden Abbrechen klicken."),

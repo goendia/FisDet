@@ -7,7 +7,9 @@ import re
 from PySide6 import QtCore, QtGui, QtSql
 
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QMainWindow, qApp, QMessageBox, QApplication, QColor, QFileDialog
+# from PySide6.QtGui import QMainWindow, qApp, QMessageBox, QApplication, QColor, QFileDialog
+from PySide6.QtGui import QColor
+from PySide6.QtWidgets import (QMainWindow, QMessageBox, QApplication, QFileDialog, QDialog)
 from PySide6.QtSql import QSqlTableModel, QSqlDatabase, QSqlQuery
 
 from ui_sqlabfrage import Ui_Dialog
@@ -19,9 +21,9 @@ verhaltenDictionary = {"kvogno":"00-1", "ab":"-100", "unklar":"010", "auf":"100"
                         "vuiBox": "002", "voiBox":"00-2", "BiB":"020", "Boxauf":"200", "Boxab":"-200"}
 
 
-class ExportDialog(QtGui.QDialog, Ui_Dialog):
+class ExportDialog(QDialog, Ui_Dialog):
     def __init__(self, databaseType, parent=None):
-        QtGui.QDialog.__init__(self, parent)
+        QDialog.__init__(self, parent)
         self.setupUi(self)
 
         # Get database type from Editor class (Editor class gets the variable from MainWindow class)

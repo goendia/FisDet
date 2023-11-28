@@ -9,7 +9,7 @@ from PySide6 import QtCore, QtGui, QtSql
 from PySide6.QtCore import Qt
 # from PySide6.QtGui import QMainWindow, qApp, QMessageBox, QApplication, QColor, QFileDialog
 from PySide6.QtGui import QColor
-from PySide6.QtWidgets import (QMainWindow, qApp, QMessageBox, QApplication, QFileDialog)
+from PySide6.QtWidgets import (QMainWindow, QMessageBox, QApplication, QFileDialog)
 from PySide6.QtSql import QSqlTableModel, QSqlDatabase, QSqlQuery
 
 # import the class for the export dialog
