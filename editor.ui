@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Editor</class>
+ <widget class="QMainWindow" name="Editor">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>623</width>
+    <height>389</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string notr="true">Editor</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>:/images/images/table_edit.png</normaloff>
+    <normalon>:/images/images/table_edit.png</normalon>:/images/images/table_edit.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="6" column="0">
+     <widget class="QTableView" name="tableView">
+      <property name="autoScroll">
+       <bool>false</bool>
+      </property>
+      <property name="autoScrollMargin">
+       <number>1</number>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLineEdit" name="queryTextEdit">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>9999999</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QPushButton" name="stqrtQueryButton">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>SQL QUERY</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>623</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_Daten">
+    <property name="title">
+     <string>&amp;Daten</string>
+    </property>
+    <widget class="QMenu" name="menu_Exportieren">
+     <property name="title">
+      <string>&amp;Exportieren</string>
+     </property>
+     <addaction name="action_xls"/>
+    </widget>
+    <addaction name="menu_Exportieren"/>
+    <addaction name="action_Importieren"/>
+   </widget>
+   <widget class="QMenu" name="menu_SQL">
+    <property name="title">
+     <string>SQL-Abfrage</string>
+    </property>
+    <addaction name="actionAntworten_exportieren"/>
+   </widget>
+   <widget class="QMenu" name="menuAnsicht">
+    <property name="title">
+     <string>Ansicht</string>
+    </property>
+    <addaction name="actionSqlQuery"/>
+   </widget>
+   <addaction name="menu_Daten"/>
+   <addaction name="menuAnsicht"/>
+   <addaction name="menu_SQL"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>Werkzeugleiste</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_anwenden"/>
+   <addaction name="action_zurueck"/>
+   <addaction name="separator"/>
+   <addaction name="action_newline"/>
+   <addaction name="action_loeschen"/>
+   <addaction name="separator"/>
+  </widget>
+  <action name="action_xls">
+   <property name="icon">
+    <iconset resource="images.qrc">
+     <normaloff>:/images/images/file_extension_xls.png</normaloff>:/images/images/file_extension_xls.png</iconset>
+   </property>
+   <property name="text">
+    <string>als .xls</string>
+   </property>
+  </action>
+  <action name="action_anwenden">
+   <property name="icon">
+    <iconset resource="images.qrc">
+     <normaloff>:/images/images/accept.png</normaloff>:/images/images/accept.png</iconset>
+   </property>
+   <property name="text">
+    <string>Änderungen anwenden</string>
+   </property>
+   <property name="toolTip">
+    <string>Änderungen übernehmen.</string>
+   </property>
+   <property name="statusTip">
+    <string>Änderungen übernehmen.</string>
+   </property>
+  </action>
+  <action name="action_loeschen">
+   <property name="icon">
+    <iconset resource="images.qrc">
+     <normaloff>:/images/images/cancel.png</normaloff>:/images/images/cancel.png</iconset>
+   </property>
+   <property name="text">
+    <string>Eintrag löschen</string>
+   </property>
+   <property name="toolTip">
+    <string>Markierten Eintrag löschen.</string>
+   </property>
+   <property name="statusTip">
+    <string>Markierten Eintrag löschen.</string>
+   </property>
+  </action>
+  <action name="action_zurueck">
+   <property name="icon">
+    <iconset resource="images.qrc">
+     <normaloff>:/images/images/arrow_undo.png</normaloff>:/images/images/arrow_undo.png</iconset>
+   </property>
+   <property name="text">
+    <string>Rückgängig</string>
+   </property>
+   <property name="toolTip">
+    <string>Änderungen rückgängig machen.</string>
+   </property>
+   <property name="statusTip">
+    <string>Änderungen rückgängig machen.</string>
+   </property>
+  </action>
+  <action name="action_newline">
+   <property name="icon">
+    <iconset resource="images.qrc">
+     <normaloff>:/images/images/plus.png</normaloff>:/images/images/plus.png</iconset>
+   </property>
+   <property name="text">
+    <string>Neue Zeile</string>
+   </property>
+   <property name="toolTip">
+    <string>Fügt eine neue Zeile in die Datenbank ein.</string>
+   </property>
+   <property name="statusTip">
+    <string>Neue Zeile am Ende der Datenbank hinzufügen.</string>
+   </property>
+  </action>
+  <action name="actionAntworten_exportieren">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Antworten exportieren</string>
+   </property>
+   <property name="statusTip">
+    <string/>
+   </property>
+  </action>
+  <action name="action_Importieren">
+   <property name="text">
+    <string>Datenbank &amp;importieren</string>
+   </property>
+   <property name="toolTip">
+    <string>Importiert eine Datenbank</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="actionSqlQuery">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>SQL Query</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="images.qrc"/>
+ </resources>
+ <connections/>
+</ui>

@@ -1,0 +1,9 @@
+('C:\\Users\\chris\\Desktop\\STRUKTURIERT\\build\\mainwindow\\mainwindow.exe',
+ True,
+ False,
+ None,
+ None,
+ [],
+ None,
+ False,
+ 1418108294L)

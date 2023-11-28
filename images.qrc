@@ -1,0 +1,14 @@
+<RCC>
+  <qresource prefix="images">
+    <file>images/plus.png</file>
+    <file>images/database_add.png</file>
+    <file>images/database_edit.png</file>
+    <file>images/file_extension_xls.png</file>
+    <file>images/database_go.png</file>
+    <file>images/table_edit_small.png</file>
+    <file>images/accept.png</file>
+    <file>images/door_out.png</file>
+    <file>images/arrow_undo.png</file>
+    <file>images/cancel.png</file>
+  </qresource>
+</RCC>
