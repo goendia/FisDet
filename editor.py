@@ -7,7 +7,9 @@ import re
 from PySide6 import QtCore, QtGui, QtSql
 
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QMainWindow, qApp, QMessageBox, QApplication, QColor, QFileDialog
+# from PySide6.QtGui import QMainWindow, qApp, QMessageBox, QApplication, QColor, QFileDialog
+from PySide6.QtGui import QColor
+from PySide6.QtWidgets import (QMainWindow, qApp, QMessageBox, QApplication, QFileDialog)
 from PySide6.QtSql import QSqlTableModel, QSqlDatabase, QSqlQuery
 
 # import the class for the export dialog
@@ -24,13 +26,13 @@ ID, DB_TYPE, BUILD_DATE = range(3)
 verhaltenDictionary = {"kvogno":"00-1", "ab":"-100", "unklar":"010", "auf":"100", "kvugnu":"001",
                         "vuiBox": "002", "voiBox":"00-2", "BiB":"020", "Boxauf":"200", "Boxab":"-200"}
 
-class Editor(QtGui.QMainWindow, Ui_Editor):
+class Editor(QMainWindow, Ui_Editor):
 
     # Define signal for insertRow method (where it is called), it is connected in __init__ method and scrolls the tableView automatically down
     signalRowInserted = QtCore.Signal()
 
     def __init__(self, model, databaseType, databasePath, nameOfProtokollant, parent=None):
-        QtGui.QMainWindow.__init__(self, parent)#, QtCore.Qt.WindowStaysOnTopHint)
+        QMainWindow.__init__(self, parent)#, QtCore.Qt.WindowStaysOnTopHint)
         self.setupUi(self)
 
         # Get the model variable from MyWindow class and select it in this instance
@@ -50,7 +52,7 @@ class Editor(QtGui.QMainWindow, Ui_Editor):
         # so that the user has to complete the last row he/she has manually entered
         self.newRowInserted = False
 
-        self.setWindowTitle(QtGui.QApplication.translate("Editor", "Editor - "+str(self.databasePath), None, QtGui.QApplication.UnicodeUTF8))
+        self.setWindowTitle(QApplication.translate("Editor", "Editor - "+str(self.databasePath), None, QApplication.UnicodeUTF8))
 
         self.tableView.setModel(self.model)
 

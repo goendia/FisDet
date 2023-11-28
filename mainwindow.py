@@ -71,7 +71,9 @@ import re
 from PySide6 import QtCore, QtGui, QtSql
 
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QMainWindow, qApp, QMessageBox, QApplication, QColor, QFileDialog
+# from PySide6.QtGui import QMainWindow, qApp, QMessageBox, QApplication, QColor, QFileDialog
+from PySide6.QtGui import QColor
+from PySide6.QtWidgets import (QMainWindow, qApp, QMessageBox, QApplication, QFileDialog)
 from PySide6.QtSql import QSqlTableModel, QSqlDatabase, QSqlQuery
 
 from editor import Editor
@@ -96,7 +98,7 @@ class MyWindow(QtGui.QMainWindow, Ui_MainWindow):
     signalDatabaseSubmit = QtCore.Signal()
 
     def __init__(self, parent=None):
-        QtGui.QMainWindow.__init__(self, parent, QtCore.Qt.WindowStaysOnTopHint)
+        QMainWindow.__init__(self, parent, QtCore.Qt.WindowStaysOnTopHint)
         self.setupUi(self)
         # align application on screen left/top full height
         self.move(0,0)
@@ -465,9 +467,9 @@ class MyWindow(QtGui.QMainWindow, Ui_MainWindow):
 
         # Change the window title
         if self.databaseType == "sub":
-            self.setWindowTitle(QtGui.QApplication.translate("MainWindow", "Fisdet - SubDB: "+str(self.databasePath), None, QtGui.QApplication.UnicodeUTF8))
+            self.setWindowTitle(QApplication.translate("MainWindow", "Fisdet - SubDB: "+str(self.databasePath), None, QApplication.UnicodeUTF8))
         elif self.databaseType == "server":
-            self.setWindowTitle(QtGui.QApplication.translate("MainWindow", "Fisdet - ServerDB: "+str(self.databasePath), None, QtGui.QApplication.UnicodeUTF8))
+            self.setWindowTitle(QApplication.translate("MainWindow", "Fisdet - ServerDB: "+str(self.databasePath), None, QApplication.UnicodeUTF8))
 
         # Save connection status in the connected variable, so you can check the connection status on other places
         self.connectionToDatabase = "OK"
@@ -551,12 +553,12 @@ class MyWindow(QtGui.QMainWindow, Ui_MainWindow):
         '''
 
         if dbType == "server":
-            if QtGui.QMessageBox.question(self, "Hinweis", "Wollen Sie wirklich eine Server-Datenbank erstellen? \n\n Dies ist normalerweise den Administratoren vorbehalten.",
-                                          QtGui.QMessageBox.Yes|QtGui.QMessageBox.No) == QtGui.QMessageBox.No:
+            if QMessageBox.question(self, "Hinweis", "Wollen Sie wirklich eine Server-Datenbank erstellen? \n\n Dies ist normalerweise den Administratoren vorbehalten.",
+                                          QMessageBox.Yes|QMessageBox.No) == QMessageBox.No:
                 return
 
         # TODO: Replacing for already existing databases is not functioning
-        fileDialog = QtGui.QFileDialog()
+        fileDialog = QFileDialog()
         # Set file dialog to AcceptSave (1) for prompting when overwriting an already existing file
         fileDialog.setAcceptMode(fileDialog.AcceptMode(1))
         # Open file dialog and set the filter to .db
@@ -650,7 +652,7 @@ class MyWindow(QtGui.QMainWindow, Ui_MainWindow):
         else:
             info_model.database().rollback()
             print(info_model.lastError().text())
-            QtGui.QMessageBox.warning(self, "Fisdet",
+            QMessageBox.warning(self, "Fisdet",
                                       "Die Datenbank meldet folgenden Fehler: %s" % info_model.lastError().text())
 
         # Nach erfolgreichem Herstellen der Datenbank nochmaliges Laden, zur Verifizierung
@@ -710,7 +712,7 @@ class MyWindow(QtGui.QMainWindow, Ui_MainWindow):
         Checks if there is a connection to the database.
         '''
         if self.connectionToDatabase == "":
-            QtGui.QMessageBox.warning(self, "Hinweis",
+            QMessageBox.warning(self, "Hinweis",
                                       "Bitte zuerst Datenbank laden bzw. erstellen!")
             return False
         else: return True
@@ -723,7 +725,7 @@ class MyWindow(QtGui.QMainWindow, Ui_MainWindow):
         '''
 
         # Get the database name and path from user with help of a file dialog
-        self.databasePath = QtGui.QFileDialog.getOpenFileName(self, u'Öffne Datenbank', '', "*.db")[0]
+        self.databasePath = QFileDialog.getOpenFileName(self, u'Öffne Datenbank', '', "*.db")[0]
         if self.databasePath:
             # close editor of already open
             if hasattr(self, 'editor'): self.editor.close()
@@ -800,20 +802,20 @@ class MyWindow(QtGui.QMainWindow, Ui_MainWindow):
         # dont insert data, when a new row was not submitted before
         # TODO: Do you want to save the manual changes? Yes. No. Back.
         if self.model.dirty == True:
-            if QtGui.QMessageBox.warning(self, "Änderungen speichern?", u"Möchten Sie die zuvor gemachten manuellen Änderungen speichern?",
-                                      QtGui.QMessageBox.Yes|QtGui.QMessageBox.No) == QtGui.QMessageBox.No:
+            if QMessageBox.warning(self, "Änderungen speichern?", u"Möchten Sie die zuvor gemachten manuellen Änderungen speichern?",
+                                      QMessageBox.Yes|QMessageBox.No) == QMessageBox.No:
                 return
 
         if hasattr(Editor, 'newRowInserted')and Editor.newRowInserted is True:
             # if newRowInserted = True, Error "Please complete last inserted row!" --> no data is inserted...
-            QtGui.QMessageBox.warning(self, "Hinweis", u"Bitte vervollständigen zuerst Sie die letzte von Hand eingefügte Zeile!")
+            QMessageBox.warning(self, "Hinweis", u"Bitte vervollständigen zuerst Sie die letzte von Hand eingefügte Zeile!")
             # Return if a row is incomplete
             return
         else:
             # Check if the user inserted a user name, if not return from function
             if self.editProtokollant.text() == "":
                 print("Kein Protokollant benannt!")
-                QtGui.QMessageBox.warning(self, "Hinweis",
+                QMessageBox.warning(self, "Hinweis",
                                               "Bitte benennen Sie einen Protokollanten")
                 return
             else:
@@ -963,7 +965,7 @@ class MyWindow(QtGui.QMainWindow, Ui_MainWindow):
 
                     return True
                 else:
-                    QtGui.QMessageBox.warning(self, "Fehler",
+                    QMessageBox.warning(self, "Fehler",
                                                 u"Bitte zuerst eine Fischart auswählen.")
                     # Return if no species is chosen
                     return
@@ -999,11 +1001,11 @@ class MyWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.model.database().rollback()
             print("Datenbankfehler: "+self.model.lastError().text())
             if self.model.lastError().text().find("NOT NULL") != -1:
-                QtGui.QMessageBox.warning(self, "Fisdet",
+                QMessageBox.warning(self, "Fisdet",
                                       u"Einer der vorhergehenden Einträge ist unvollständig! Bitte überprüfen und vervollständigen.")
                 return "NULL"
             else:
-                QtGui.QMessageBox.warning(self, "Fisdet",
+                QMessageBox.warning(self, "Fisdet",
                                       "Die Datenbank meldet folgenden Fehler: %s" % self.model.lastError().text())
                 return "ERROR"
 
