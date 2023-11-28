@@ -102,7 +102,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         # align application on screen left/top full height
         self.move(0,0)
-        self.resize(self.width(), app.desktop().availableGeometry().height())
+        # self.resize(self.width(), app.desktop().availableGeometry().height())
         
         ################ defintion  of variables (self.name_log, TODO: self.videodatum is missing)
         self.databaseType = None
