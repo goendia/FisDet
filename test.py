@@ -1,4 +1,4 @@
-from PySide import *
+from PySide6 import *
 
 ################################################################
 def main():
@@ -191,10 +191,10 @@ class MyTable(QTableWidget):
         """ Reads in data as a 2D list and formats and displays it in
             the table """
 
-        print "Fetching data..."
+        print("Fetching data...")
         ep = EventlogParser()
         data = ep.parse_log(dateobj)
-        print "Done."
+        print("Done.")
 
         if len(data)==0:
             data = ["No data for this date range."]

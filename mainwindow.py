@@ -66,13 +66,13 @@ FEATURES: #######
 
 import sys
 import xlwt
-import win32gui
+# import win32gui
 import re
-from PySide import QtCore, QtGui, QtSql
+from PySide6 import QtCore, QtGui, QtSql
 
-from PySide.QtCore import Qt
-from PySide.QtGui import QMainWindow, qApp, QMessageBox, QApplication, QColor, QFileDialog
-from PySide.QtSql import QSqlTableModel, QSqlDatabase, QSqlQuery
+from PySide6.QtCore import Qt
+from PySide6.QtGui import QMainWindow, qApp, QMessageBox, QApplication, QColor, QFileDialog
+from PySide6.QtSql import QSqlTableModel, QSqlDatabase, QSqlQuery
 
 from editor import Editor
 from welcome import Welcome
@@ -80,7 +80,7 @@ from welcome import Welcome
 from model import Model
 from already_running import QSingleApplication
 from ui_mainwindow import Ui_MainWindow
-from PySide.QtCore import QSettings
+from PySide6.QtCore import QSettings
 
 
 
@@ -568,14 +568,14 @@ class MyWindow(QtGui.QMainWindow, Ui_MainWindow):
         else:
             return
 
-        print "createNewDatabase: "+self.databasePath
+        print("createNewDatabase: "+self.databasePath)
 
         # close editor if already open
         if hasattr(self, 'editor'): self.editor.close()
 
 
         if self.createConnection():
-            print "createNewDatabase: Verbindung zur Datenbank hergestellt."
+            print("createNewDatabase: Verbindung zur Datenbank hergestellt.")
 
         sql_query = QtSql.QSqlQuery()
 
@@ -649,7 +649,7 @@ class MyWindow(QtGui.QMainWindow, Ui_MainWindow):
             info_model.database().commit()
         else:
             info_model.database().rollback()
-            print info_model.lastError().text()
+            print(info_model.lastError().text())
             QtGui.QMessageBox.warning(self, "Fisdet",
                                       "Die Datenbank meldet folgenden Fehler: %s" % info_model.lastError().text())
 
@@ -729,7 +729,7 @@ class MyWindow(QtGui.QMainWindow, Ui_MainWindow):
             if hasattr(self, 'editor'): self.editor.close()
             self.createConnection()
             self.createModel()
-        else: print "Konnte Datenbank nicht öffnen!"
+        else: print("Konnte Datenbank nicht öffnen!")
 
 
     def getTimeStampFromVideo(self):
@@ -812,7 +812,7 @@ class MyWindow(QtGui.QMainWindow, Ui_MainWindow):
         else:
             # Check if the user inserted a user name, if not return from function
             if self.editProtokollant.text() == "":
-                print "Kein Protokollant benannt!"
+                print("Kein Protokollant benannt!")
                 QtGui.QMessageBox.warning(self, "Hinweis",
                                               "Bitte benennen Sie einen Protokollanten")
                 return

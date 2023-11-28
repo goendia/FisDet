@@ -2,16 +2,16 @@
 
 import sys
 import xlwt
-import win32gui
+# import win32gui
 import re
-from PySide import QtCore, QtGui, QtSql
+from PySide6 import QtCore, QtGui, QtSql
 
-from PySide.QtCore import Qt
-from PySide.QtGui import QMainWindow, qApp, QMessageBox, QApplication, QColor, QFileDialog
-from PySide.QtSql import QSqlTableModel, QSqlDatabase, QSqlQuery
+from PySide6.QtCore import Qt
+from PySide6.QtGui import QMainWindow, qApp, QMessageBox, QApplication, QColor, QFileDialog
+from PySide6.QtSql import QSqlTableModel, QSqlDatabase, QSqlQuery
 
 from ui_sqlabfrage import Ui_Dialog
-from PySide.QtCore import QSettings
+from PySide6.QtCore import QSettings
 
 ID, NAME, DATUM, ART, LAENGE, VERHALTEN, BEMERKUNG, ANTWORT, TRUEBUNG, TURBULENZ, FARBE, LOG, ID_SERVER = range(13)
 ID, DB_TYPE, BUILD_DATE = range(3)
@@ -28,7 +28,7 @@ class ExportDialog(QtGui.QDialog, Ui_Dialog):
         self.databaseType = databaseType
 
         self.export_model = QtSql.QSqlTableModel(self)
-        print "ExportDialog.__init__(): DB-Type = "+str(self.databaseType)
+        print("ExportDialog.__init__(): DB-Type = "+str(self.databaseType))
         #self.export_model.setQuery(QtSql.QSqlQuery('SELECT sub_id, name, datum, art, laenge, verhalten, bem, ant FROM fische WHERE ant IS NOT NULL'))
 
         ############### besser wäre WHERE ant IS NOT NULL"", bitte implementieren!!!!!!!!!!!??????????

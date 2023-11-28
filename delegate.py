@@ -6,9 +6,9 @@ from __future__ import print_function
 from __future__ import unicode_literals
 #from future_builtins import *
 
-from PySide.QtCore import *
-from PySide.QtGui import *
-from PySide.QtSql import *
+from PySide6.QtCore import *
+from PySide6.QtGui import *
+from PySide6.QtSql import *
 '''
 from PySide.QtCore import (QAbstractTableModel, QDataStream, QFile,
         QIODevice, QModelIndex, QRegExp, QSize, Qt)

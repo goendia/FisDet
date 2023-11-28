@@ -2,13 +2,13 @@
 
 import sys
 import xlwt
-import win32gui
+# import win32gui
 import re
-from PySide import QtCore, QtGui, QtSql
+from PySide6 import QtCore, QtGui, QtSql
 
-from PySide.QtCore import Qt
-from PySide.QtGui import QMainWindow, qApp, QMessageBox, QApplication, QColor, QFileDialog
-from PySide.QtSql import QSqlTableModel, QSqlDatabase, QSqlQuery
+from PySide6.QtCore import Qt
+from PySide6.QtGui import QMainWindow, qApp, QMessageBox, QApplication, QColor, QFileDialog
+from PySide6.QtSql import QSqlTableModel, QSqlDatabase, QSqlQuery
 
 # import the class for the export dialog
 from exportdialog import ExportDialog
@@ -43,8 +43,8 @@ class Welcome(QtGui.QMainWindow, Ui_Welcome):
         #MyWindow.openDatabase()
 
     def accept(self):
-        print "STOP"
+        print("STOP")
 
     def reject(self):
-        print 'jshdkhd'
+        print('jshdkhd')
 

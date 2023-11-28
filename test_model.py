@@ -1,5 +1,5 @@
 import sys
-from PySide import *
+from PySide6 import *
 
 class MyTableModel(QtCore.QAbstractTableModel):
     def __init__(self, symbList=[[]], parent=None):

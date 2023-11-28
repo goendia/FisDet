@@ -24,7 +24,7 @@ def sqlEditor(debPath, sql):
             row = cur.fetchone()
             
             if row:
-                print row[0], row[1], row[2], row[3], row[4]
+                print(row[0], row[1], row[2], row[3], row[4])
             else: 
                 break
 sqlEditor('C:\CStuff\home.db', "SELECT * FROM fische ORDER BY sub_id DESC LIMIT 256")

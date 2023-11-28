@@ -2,13 +2,13 @@
 
 import sys
 import xlwt
-import win32gui
+# import win32gui
 import re
-from PySide import QtCore, QtGui, QtSql
+from PySide6 import QtCore, QtGui, QtSql
 
-from PySide.QtCore import Qt
-from PySide.QtGui import QMainWindow, qApp, QMessageBox, QApplication, QColor, QFileDialog
-from PySide.QtSql import QSqlTableModel, QSqlDatabase, QSqlQuery
+from PySide6.QtCore import Qt
+from PySide6.QtGui import QMainWindow, qApp, QMessageBox, QApplication, QColor, QFileDialog
+from PySide6.QtSql import QSqlTableModel, QSqlDatabase, QSqlQuery
 
 # import the class for the export dialog
 from exportdialog import ExportDialog
@@ -17,7 +17,7 @@ from delegate import Delegate
 
 from ui_editor import Ui_Editor
 from ui_sqlabfrage import Ui_Dialog
-from PySide.QtCore import QSettings
+from PySide6.QtCore import QSettings
 
 ID, NAME, DATUM, ART, LAENGE, VERHALTEN, BEMERKUNG, ANTWORT, TRUEBUNG, TURBULENZ, FARBE, LOG, ID_SERVER = range(13)
 ID, DB_TYPE, BUILD_DATE = range(3)
@@ -122,7 +122,7 @@ class Editor(QtGui.QMainWindow, Ui_Editor):
         qQuery = QSqlQuery(str(query))
         if not self.model.setQuery(qQuery):
             # TODO: Better error handling popup?
-            print 'Invalid Query:  ' + query
+            print('Invalid Query:  ' + query)
         else:
             self.tableView.setModel(self.model)
 
@@ -257,7 +257,7 @@ class Editor(QtGui.QMainWindow, Ui_Editor):
             self.model.dirty = False
         else:
             self.model.database().rollback()
-            print self.model.lastError().text()
+            print(self.model.lastError().text())
             if self.model.lastError().text().find("NOT NULL") != -1:
                 QtGui.QMessageBox.warning(self, "Fisdet",
                                       u"Einer der vorhergehenden Einträge ist unvollständig! Bitte überprüfen und vervollständigen.")
@@ -275,7 +275,7 @@ class Editor(QtGui.QMainWindow, Ui_Editor):
 
         # Get path of import database
         dname = QtGui.QFileDialog.getOpenFileName(self, u'Öffne Datenbank', '', "*.db")[0]
-        print dname
+        print(dname)
 
         # Return if Open-Dialog was canceled and no database was loaded. To prevent function on running...
         if "." not in dname:

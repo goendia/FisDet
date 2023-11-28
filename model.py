@@ -3,7 +3,7 @@ __author__ = 'chris'
 
 # TODO: Reimplement canfetchmore() and fetchmore() functions
 
-from PySide import QtCore, QtSql, QtGui
+from PySide6 import QtCore, QtSql, QtGui
 
 ID, NAME, DATUM, ART, LAENGE, VERHALTEN, BEMERKUNG, ANTWORT, TRUEBUNG, TURBULENZ, FARBE, LOG, ID_SERVER = range(13)
 verhaltenDictionary = {"kvogno":"00-1", "ab":"-100", "unklar":"010", "auf":"100", "kvugnu":"001",

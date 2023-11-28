@@ -2,9 +2,9 @@
 
 __author__ = 'chris'
 
-from PySide.QtGui import QMessageBox, QApplication
-from PySide.QtCore import QIODevice, QTimer
-from PySide.QtNetwork import QLocalServer, QLocalSocket
+from PySide6.QtGui import QMessageBox, QApplication
+from PySide6.QtCore import QIODevice, QTimer
+from PySide6.QtNetwork import QLocalServer, QLocalSocket
 import sys
 
 class QSingleApplication(QApplication):
