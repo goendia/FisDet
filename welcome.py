@@ -7,7 +7,8 @@ import re
 from PySide6 import QtCore, QtGui, QtSql
 
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QMainWindow, qApp, QMessageBox, QApplication, QColor, QFileDialog
+from PySide6.QtGui import QColor
+from PySide6.QtWidgets import (QMainWindow, QMessageBox, QApplication, QFileDialog, QDialog)
 from PySide6.QtSql import QSqlTableModel, QSqlDatabase, QSqlQuery
 
 # import the class for the export dialog
@@ -18,10 +19,10 @@ from ui_welcome import Ui_Welcome
 #from mainwindow import MyWindow
 
 
-class Welcome(QtGui.QMainWindow, Ui_Welcome):
+class Welcome(QMainWindow, Ui_Welcome):
     def __init__(self, parent=None):
-        QtGui.QMainWindow.__init__(self, parent, QtCore.Qt.WindowStaysOnTopHint)
-        self.dialog = QtGui.QDialog(parent)
+        QMainWindow.__init__(self, parent, QtCore.Qt.WindowStaysOnTopHint)
+        self.dialog = QDialog(parent)
         self.setupUi(self)
 
         self.buttonBox.accepted.connect(self.accept)
