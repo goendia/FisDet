@@ -92,7 +92,7 @@ verhaltenDictionary = {"kvogno":"00-1", "ab":"-100", "unklar":"010", "auf":"100"
                         "vuiBox": "002", "voiBox":"00-2", "BiB":"020", "Boxauf":"200", "Boxab":"-200"}
 
 
-class MyWindow(QtGui.QMainWindow, Ui_MainWindow):
+class MyWindow(QMainWindow, Ui_MainWindow):
 
     # Signal for auto scrolling down the tableView after insertion of data
     signalDatabaseSubmit = QtCore.Signal()
