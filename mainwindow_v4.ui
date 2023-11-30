@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>469</width>
-    <height>854</height>
+    <width>438</width>
+    <height>996</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -33,11 +33,9 @@
 
 
 QGroupBox {
-     background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,
-                                       stop: 0 rgb(200, 200, 200), stop: 1 #FFFFFF);
 	/*background-color:rgb(200, 200, 200);*/
      border: 1px solid gray;
-     border-radius: 5px;
+     border-radius: 2px;
      margin-top: 1ex; /* leave space at the top for the title */
 	font: bold;
  }
@@ -46,11 +44,6 @@ QGroupBox {
      subcontrol-origin: margin;
      subcontrol-position: top center; /* position at the top center */
      padding: 0 7px;
-     background-color: /*rgb(200, 200, 200);*/
-									qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                       stop: 0 rgb(200, 200, 200), stop: 1 #FFFFFF);
-	border: 1px solid gray;
-    border-radius: 5px;
  }
 
  QGroupBox::indicator {
@@ -77,7 +70,7 @@ QRadioButton{
 	border: 1px solid gray;
     border-radius: 5px;
 }
-/*
+
 QPushButton
 {
     color: #b1b1b1;
@@ -91,13 +84,15 @@ QPushButton
     padding-left: 5px;
     padding-right: 5px;
 }
-*/
+
+
 QPushButton:on
 {
-    border: 2px solid rgb(255, 0, 0);
-	background-color: rgb(0, 255, 0);
-	border-radius: 1px
+    border: 2px solid;
+	background-color: rgb(118, 214, 255);
+	text-color: black
 }
+
 /*
 QPushButton:hover
 {
@@ -122,13 +117,6 @@ QPushButton:hover
           <width>91</width>
           <height>61</height>
          </size>
-        </property>
-        <property name="palette">
-         <palette>
-          <active/>
-          <inactive/>
-          <disabled/>
-         </palette>
         </property>
         <property name="title">
          <string>Multiplikator</string>
@@ -187,13 +175,6 @@ QPushButton:hover
           <width>90</width>
           <height>0</height>
          </size>
-        </property>
-        <property name="palette">
-         <palette>
-          <active/>
-          <inactive/>
-          <disabled/>
-         </palette>
         </property>
         <property name="title">
          <string>Protokollant</string>
@@ -400,6 +381,9 @@ QPushButton:hover
          </property>
          <property name="autoExclusive">
           <bool>true</bool>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
          </property>
         </widget>
        </item>
@@ -1151,9 +1135,6 @@ QPushButton:hover
          <property name="autoExclusive">
           <bool>true</bool>
          </property>
-         <property name="autoDefault">
-          <bool>false</bool>
-         </property>
         </widget>
        </item>
        <item row="10" column="1">
@@ -1257,6 +1238,15 @@ QPushButton:hover
          <property name="autoExclusive">
           <bool>true</bool>
          </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
+         <property name="default">
+          <bool>false</bool>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
         </widget>
        </item>
       </layout>
@@ -1275,13 +1265,6 @@ QPushButton:hover
         <width>281</width>
         <height>64</height>
        </size>
-      </property>
-      <property name="palette">
-       <palette>
-        <active/>
-        <inactive/>
-        <disabled/>
-       </palette>
       </property>
       <property name="title">
        <string>manuelle Eingabe:</string>
@@ -1413,13 +1396,6 @@ QPushButton:hover
         <height>81</height>
        </size>
       </property>
-      <property name="palette">
-       <palette>
-        <active/>
-        <inactive/>
-        <disabled/>
-       </palette>
-      </property>
       <property name="title">
        <string>Text und Farbe der Bemerkung</string>
       </property>
@@ -1540,13 +1516,6 @@ QPushButton:hover
         <height>60</height>
        </size>
       </property>
-      <property name="palette">
-       <palette>
-        <active/>
-        <inactive/>
-        <disabled/>
-       </palette>
-      </property>
       <property name="title">
        <string>Trübung / Turbulenz</string>
       </property>
@@ -1573,13 +1542,6 @@ QPushButton:hover
         <width>241</width>
         <height>65</height>
        </size>
-      </property>
-      <property name="palette">
-       <palette>
-        <active/>
-        <inactive/>
-        <disabled/>
-       </palette>
       </property>
       <property name="styleSheet">
        <string notr="true"/>
@@ -1735,13 +1697,6 @@ QPushButton:hover
         <height>51</height>
        </size>
       </property>
-      <property name="palette">
-       <palette>
-        <active/>
-        <inactive/>
-        <disabled/>
-       </palette>
-      </property>
       <property name="title">
        <string>Zusammenfassung</string>
       </property>
@@ -1763,7 +1718,7 @@ QPushButton:hover
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>469</width>
+     <width>438</width>
      <height>24</height>
     </rect>
    </property>

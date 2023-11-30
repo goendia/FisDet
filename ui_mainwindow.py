@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainwindow_v3.ui'
+## Form generated from reading UI file 'mainwindow_v4.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.0
 ##
@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(345, 731)
+        MainWindow.resize(438, 996)
         MainWindow.setMinimumSize(QSize(345, 731))
         MainWindow.setBaseSize(QSize(299, 632))
         MainWindow.setStyleSheet(u"/*QMainWindow{\n"
@@ -38,11 +38,9 @@ class Ui_MainWindow(object):
 "\n"
 "\n"
 "QGroupBox {\n"
-"     background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,\n"
-"                                       stop: 0 rgb(200, 200, 200), stop: 1 #FFFFFF);\n"
 "	/*background-color:rgb(200, 200, 200);*/\n"
 "     border: 1px solid gray;\n"
-"     border-radius: 5px;\n"
+"     border-radius: 2px;\n"
 "     margin-top: 1ex; /* leave space at the top for the title */\n"
 "	font: bold;\n"
 " }\n"
@@ -51,11 +49,6 @@ class Ui_MainWindow(object):
 "     subcontrol-origin: margin;\n"
 "     subcontrol-position: top center; /* position at the top center */\n"
 "     padding: 0 7px;\n"
-"     background-color: /*rgb(200, 200, 200);*/\n"
-"									qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                       stop: 0 rgb(200, 200, 200), stop: 1 #FFFFFF);\n"
-"	border: 1px solid gray;\n"
-"    border-radius: 5px;\n"
 " }\n"
 "\n"
 " QGroupBox::indicator {\n"
@@ -63,8 +56,7 @@ class Ui_MainWindow(object):
 "     height: 13px;\n"
 " }\n"
 "\n"
-""
-                        "QLineEdit {\n"
+"QLineEdit {\n"
 "	border: 1px solid gray;\n"
 "    border-radius: 5px;\n"
 "}\n"
@@ -83,11 +75,12 @@ class Ui_MainWindow(object):
 "	border: 1px solid gray;\n"
 "    border-radius: 5px;\n"
 "}\n"
-"/*\n"
+"\n"
 "QPushButton\n"
 "{\n"
 "    color: #b1b1b1;\n"
-"    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);\n"
+"    background-color: QLinearG"
+                        "radient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);\n"
 "    border-width: 1px;\n"
 "    border-color: #1e1e1e;\n"
 "    border-style: solid;\n"
@@ -97,18 +90,19 @@ class Ui_MainWindow(object):
 "    padding-left: 5px;\n"
 "    padding-right: 5px;\n"
 "}\n"
-"*/\n"
+"\n"
+"\n"
 "QPushButton:on\n"
 "{\n"
-"    border: 2px solid rgb(255, 0, 0);\n"
-"	background-color: rgb(0, 255, 0);\n"
-"	border-radius: 1px\n"
+"    border: 2px solid;\n"
+"	background-color: rgb(118, 214, 255);\n"
+"	text-color: black\n"
 "}\n"
+"\n"
 "/*\n"
 "QPushButton:hover\n"
 "{\n"
-"    border: 2px solid QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ff"
-                        "a02f, stop: 1 #d7801a);\n"
+"    border: 2px solid QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #d7801a);\n"
 "}\n"
 "*/")
         self.action_Laden = QAction(MainWindow)
@@ -221,6 +215,8 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.groupBoxArtLaenge.sizePolicy().hasHeightForWidth())
         self.groupBoxArtLaenge.setSizePolicy(sizePolicy)
         self.groupBoxArtLaenge.setMinimumSize(QSize(221, 191))
+        palette = QPalette()
+        self.groupBoxArtLaenge.setPalette(palette)
         self.groupBoxArtLaenge.setLayoutDirection(Qt.LeftToRight)
         self.groupBoxArtLaenge.setAutoFillBackground(False)
         self.groupBoxArtLaenge.setCheckable(True)
@@ -274,6 +270,7 @@ class Ui_MainWindow(object):
         self.buttonLac50.setMinimumSize(QSize(51, 22))
         self.buttonLac50.setCheckable(True)
         self.buttonLac50.setAutoExclusive(True)
+        self.buttonLac50.setFlat(False)
 
         self.gridLayout.addWidget(self.buttonLac50, 10, 3, 1, 1)
 
@@ -615,6 +612,8 @@ class Ui_MainWindow(object):
         self.buttonUncheckAllFishButtons.setMinimumSize(QSize(51, 22))
         self.buttonUncheckAllFishButtons.setCheckable(True)
         self.buttonUncheckAllFishButtons.setAutoExclusive(True)
+        self.buttonUncheckAllFishButtons.setAutoDefault(False)
+        self.buttonUncheckAllFishButtons.setFlat(False)
 
         self.gridLayout.addWidget(self.buttonUncheckAllFishButtons, 11, 5, 1, 1)
 
@@ -854,7 +853,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 345, 21))
+        self.menubar.setGeometry(QRect(0, 0, 438, 24))
         self.menu_Menue = QMenu(self.menubar)
         self.menu_Menue.setObjectName(u"menu_Menue")
         self.menu_Menue.setTitle(u"&Datenbank")
@@ -922,6 +921,9 @@ class Ui_MainWindow(object):
         self.menuOptionen.addAction(self.actionBodenplatteButtons)
 
         self.retranslateUi(MainWindow)
+
+        self.buttonUncheckAllFishButtons.setDefault(False)
+
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
