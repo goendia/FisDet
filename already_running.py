@@ -13,17 +13,18 @@ class QSingleApplication(QApplication):
         # Socket
         self.m_socket = QLocalSocket()
         self.m_socket.connected.connect(self.connectToExistingApp)
-        self.m_socket.error.connect(self.startApplication)
+        # self.m_socket.error.connect(self.startApplication)
+        self.startApplication()
         self.m_socket.connectToServer(self.applicationName(), QIODevice.WriteOnly)
     def connectToExistingApp(self):
         if len(sys.argv)>1 and sys.argv[1] is not None:
             self.m_socket.write(sys.argv[1])
             self.m_socket.bytesWritten.connect(self.quit)
-        else:
-            ########### habe self.tr() vor den Textpassagen der MessageBox entfernt, hat anscheinend keine Auswirkungen...
-            QMessageBox.warning(None, (u"Läuft bereits"), ("Eine Instanz von Fisdet ist noch ge"+u'ö'+"ffnet.\n\n Bitte zuerst schlie"+u'ß'+"en."))
-            # Quit application in 250 ms
-            QTimer.singleShot(250, self.quit)
+        # else:
+        #     ########### habe self.tr() vor den Textpassagen der MessageBox entfernt, hat anscheinend keine Auswirkungen...
+        #     QMessageBox.warning(None, (u"Läuft bereits"), ("Eine Instanz von Fisdet ist noch ge"+u'ö'+"ffnet.\n\n Bitte zuerst schlie"+u'ß'+"en."))
+        #     # Quit application in 250 ms
+        #     QTimer.singleShot(250, self.quit)
     def startApplication(self):
         self.m_server = QLocalServer()
         if self.m_server.listen(self.applicationName()):
