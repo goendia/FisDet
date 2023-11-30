@@ -467,9 +467,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         # Change the window title
         if self.databaseType == "sub":
-            self.setWindowTitle(QApplication.translate("MainWindow", "Fisdet - SubDB: "+str(self.databasePath), None, QApplication.UnicodeUTF8))
+            self.setWindowTitle(QApplication.translate("MainWindow", "Fisdet - SubDB: "+str(self.databasePath), None))
         elif self.databaseType == "server":
-            self.setWindowTitle(QApplication.translate("MainWindow", "Fisdet - ServerDB: "+str(self.databasePath), None, QApplication.UnicodeUTF8))
+            self.setWindowTitle(QApplication.translate("MainWindow", "Fisdet - ServerDB: "+str(self.databasePath), None))
 
         # Save connection status in the connected variable, so you can check the connection status on other places
         self.connectionToDatabase = "OK"
@@ -797,7 +797,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         # Always change edit strategy of model to manual submit, so that not every entry is submitted
         # think of making same entries with the multilplier
         # The edit strategy changes in the delegate, when user makes manual changes in editor window
-        self.model.setEditStrategy(QtSql.QSqlTableModel.OnManualSubmit)
+        self.model.setEditStrategy(QSqlTableModel.OnManualSubmit)
 
         # dont insert data, when a new row was not submitted before
         # TODO: Do you want to save the manual changes? Yes. No. Back.

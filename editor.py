@@ -52,7 +52,7 @@ class Editor(QMainWindow, Ui_Editor):
         # so that the user has to complete the last row he/she has manually entered
         self.newRowInserted = False
 
-        self.setWindowTitle(QApplication.translate("Editor", "Editor - "+str(self.databasePath), None, QApplication.UnicodeUTF8))
+        self.setWindowTitle(QApplication.translate("Editor", "Editor - "+str(self.databasePath), None))
 
         self.tableView.setModel(self.model)
 
