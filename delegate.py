@@ -8,7 +8,7 @@ from __future__ import unicode_literals
 
 # from PySide6.QtCore import *
 # from PySide6.QtGui import *
-# from PySide6.QtSql import *
+from PySide6.QtSql import *
 from PySide6.QtCore import (QAbstractTableModel, QDataStream, QFile,
         QIODevice, QModelIndex, QSize, Qt)
 from PySide6.QtGui import (QColor, QTextDocument)
