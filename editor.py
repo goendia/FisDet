@@ -9,7 +9,7 @@ from PySide6 import QtCore, QtGui, QtSql
 from PySide6.QtCore import Qt
 # from PySide6.QtGui import QMainWindow, qApp, QMessageBox, QApplication, QColor, QFileDialog
 from PySide6.QtGui import QColor
-from PySide6.QtWidgets import (QMainWindow, QMessageBox, QApplication, QFileDialog)
+from PySide6.QtWidgets import (QMainWindow, QMessageBox, QApplication, QFileDialog, QProgressDialog, QProgressBar)
 from PySide6.QtSql import QSqlTableModel, QSqlDatabase, QSqlQuery
 
 # import the class for the export dialog
@@ -174,7 +174,7 @@ class Editor(QMainWindow, Ui_Editor):
     def insertRow(self):
         # TODO: After inserting a new row and also deleting that row, then inserting a new row, it shows an error
         if self.newRowInserted == True:
-            QtGui.QMessageBox.warning(self, "Fisdet",
+            QMessageBox.warning(self, "Fisdet",
                                       u"Sie haben die letzte manuell eingefügte Zeile noch nicht vervollständigt."
                                       u"Bitte tun Sie das bevor sie neue Zeilen hinzufügen.")
             return False
@@ -202,7 +202,7 @@ class Editor(QMainWindow, Ui_Editor):
 
     def xls_export(self):
         # warum bei qfiledialog eigentlich standard in unicode()?
-        filename = QtGui.QFileDialog.getSaveFileName(self, 'Speichern unter...', '', ".xls(*.xls)")[0]
+        filename = QFileDialog.getSaveFileName(self, 'Speichern unter...', '', ".xls(*.xls)")[0]
 
         if filename:
             if "." not in filename:
@@ -261,11 +261,11 @@ class Editor(QMainWindow, Ui_Editor):
             self.model.database().rollback()
             print(self.model.lastError().text())
             if self.model.lastError().text().find("NOT NULL") != -1:
-                QtGui.QMessageBox.warning(self, "Fisdet",
+                QMessageBox.warning(self, "Fisdet",
                                       u"Einer der vorhergehenden Einträge ist unvollständig! Bitte überprüfen und vervollständigen.")
                 return "NULL"
             else:
-                QtGui.QMessageBox.warning(self, "Fisdet",
+                QMessageBox.warning(self, "Fisdet",
                                       "Die Datenbank meldet folgenden Fehler: %s" % self.model.lastError().text())
                 return "ERROR"
 
@@ -276,7 +276,7 @@ class Editor(QMainWindow, Ui_Editor):
         '''
 
         # Get path of import database
-        dname = QtGui.QFileDialog.getOpenFileName(self, u'Öffne Datenbank', '', "*.db")[0]
+        dname = QFileDialog.getOpenFileName(self, u'Öffne Datenbank', '', "*.db")[0]
         print(dname)
 
         # Return if Open-Dialog was canceled and no database was loaded. To prevent function on running...
@@ -303,12 +303,12 @@ class Editor(QMainWindow, Ui_Editor):
             self.databasePath = self.databasePath[(self.databasePath.rfind("/"))+1:]
 
         # Show information about import process
-        if QtGui.QMessageBox.question(self, "Hinweis", "Geladen:\n#############\n%s, Typ: %s, Eintraege: %i \n\n Hinzufuegen:\n##############\n%s, Typ: %s" %(self.databasePath, self.databaseType, self.model.rowCount(), dname, dbtype),
-                                          QtGui.QMessageBox.Yes|QtGui.QMessageBox.No) == QtGui.QMessageBox.No:
+        if QMessageBox.question(self, "Hinweis", "Geladen:\n#############\n%s, Typ: %s, Eintraege: %i \n\n Hinzufuegen:\n##############\n%s, Typ: %s" %(self.databasePath, self.databaseType, self.model.rowCount(), dname, dbtype),
+                                          QMessageBox.Yes|QMessageBox.No) == QMessageBox.No:
             return
 
         # Start a progress dialog
-        progress = QtGui.QProgressDialog("Importiert...", "Abbrechen", 0, 0, None)
+        progress = QProgressDialog("Importiert...", "Abbrechen", 0, 0, None)
         progress.setMinimumDuration(0)
         progress.setWindowTitle("Datenbankimport")
         progress.setWindowModality(QtCore.Qt.WindowModal)
@@ -351,7 +351,7 @@ class Editor(QMainWindow, Ui_Editor):
 
 
     def progress(self):
-        self.pb = QtGui.QProgressBar(self.centralwidget)
+        self.pb = QProgressBar(self.centralwidget)
         self.pb.setGeometry(QtCore.QRect(20, 20, 301, 31))
         #self.pb.setProperty("value", 0)
         #self.pb.setObjectName(_fromUtf8("pb"))
@@ -365,8 +365,8 @@ class Editor(QMainWindow, Ui_Editor):
         '''
 
         if self.model.dirty == True:
-            if QtGui.QMessageBox.warning(self, "Änderungen speichern?", u"Möchten Sie die Änderungen speichern?",
-                                      QtGui.QMessageBox.Yes|QtGui.QMessageBox.No) == QtGui.QMessageBox.No:
+            if QMessageBox.warning(self, "Änderungen speichern?", u"Möchten Sie die Änderungen speichern?",
+                                      QMessageBox.Yes|QMessageBox.No) == QMessageBox.No:
                 #odel.database().transaction()
                 self.model.database().rollback()
                 return
