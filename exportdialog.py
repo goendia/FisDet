@@ -99,8 +99,8 @@ class ExportDialog(QDialog, Ui_Dialog):
         print("ExportDialog.add(): Spaltenanzahl = "+str(self.export_model.columnCount()))
         print("ExportDialog.add(): Zeilenanzahl = "+str(self.export_model.rowCount()))
 
-        for i in xrange(0, self.export_model.columnCount()):
-            for x in xrange(0, self.export_model.rowCount()):
+        for i in range(0, self.export_model.columnCount()):
+            for x in range(0, self.export_model.rowCount()):
                 try:
                     text = str(self.export_model.data(self.export_model.index(x, i)))
                     self.sheet.write(row, col, text)

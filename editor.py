@@ -237,8 +237,8 @@ class Editor(QMainWindow, Ui_Editor):
         print("Editor.add(): Spaltenanzahl = "+str(self.model.columnCount()))
         print("Editor.add(): Zeilenanzahl = "+str(self.model.rowCount()))
 
-        for i in xrange(0, self.model.columnCount()):
-            for x in xrange(0, self.model.rowCount()):
+        for i in range(0, self.model.columnCount()):
+            for x in range(0, self.model.rowCount()):
                 try:
                     text = str(self.model.data(self.model.index(x, i)))
                     self.sheet.write(row, col, text)
