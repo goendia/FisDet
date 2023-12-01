@@ -1030,4 +1030,4 @@ if __name__ == '__main__':
     app.setApplicationName("Fisdet")
     myWindow = MyWindow()
     app.singleStart(myWindow)
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
