@@ -454,12 +454,12 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.db.setDatabaseName(self.databasePath)
         
         if not self.db.open():
-            QtGui.QMessageBox.critical(None, QApplication.tr("Verbindungsfehler"),
+            QMessageBox.critical(None, QApplication.tr("Verbindungsfehler"),
                                    QApplication.tr("Konnte keine Verbindung mit Datenbank herstellen.\n"
                                    "Bitte wenden sie sich an den Programmierer!"
                                    ""
                                    "\n\nZum Beenden Abbrechen klicken."),
-                                   QtGui.QMessageBox.Cancel, QtGui.QMessageBox.NoButton)
+                                   QMessageBox.Cancel, QMessageBox.NoButton)
             return False
 
         # Get the database type from the info table out of the database
