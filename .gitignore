@@ -1,3 +1,6 @@
 *.pyc
 Dokumente/
 .DS_Store
+build/
+dist/
+*.bin
