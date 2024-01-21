@@ -1,66 +1,6 @@
 # -*- coding: utf-8 -*-
 '''
 Created on Fri Jun 20 15:10:08 2014
-
-Arbeitszeit:
-20.06.2014: 2h
-21.06.2014: 1h
-25.06.2014: 2h
-29.06.2014: 2h
-01.07.2014: 2h
-05.07.2014: 2h
-07.07.2014: 2h
-08.07.2014: 2h
-13.07.2014: 3h
-24.08.2014: 3h
-28.08.2014: 2h
-11.09.2014: 1h
-12.09.2014: 2h
-18.09.2014: 4h
-23.09.2014: 4h
-24.09.2014: 2h
-07.10.2014: 4h
-10.10.2014: 3h
-15.10.2014: 2h
-20.10.2014: 2h
-23.10.2014: 1h
-24.10.2014: 1h
-03.11.2014: 2h
-07.11.2014: 2h
-09.11.2014: 2h
-01.12.2014: 8h
-02.12.2014: 1h
-05.12.2014: 1,5h
-19.12.2014: 10h
-03.01.2015: 2h
-04.01.2015: 1,5h
-19.01.2015: 2h
-21.07.2015: 1h
-26.07.2015: 5h
-27.07.2015: 3,5h
-29.07.2015: 1h
-31.07.2015: 1,5h
-
-##########
-TODO: ####
-##########
-
-- soll bei nachträglichen Änderungen im Editorfenster der aktuelle Protokollant/Zeitstempel eingetragen werden? neue Spalte "updatedon"???????
-
-- Wenn in Antwort Eintrag mit "" gemacht wurde, soll dieser NICHT der Datenbank hinzugefügt werden!?!?!?!?!?!?!?
-- getdate-Funktion bei Klick auf Fisch oder bei Klick auf Verhalten???????????
-
-#################
-FEATURES: #######
-#################
-
-- Spezialfragestellungen, Plots, SQL-Abfragen...
-- wenn AVI-Format vorhanden, eigenes Videofenster zur Auswertung
-    - Phonon-Videoplayer:
-        - Phonon.SeekSlider.hasTracking() # media seeks while the slider is being dragged
-- Referenzfotosystem mit Datenbank (ideal für Einsteiger, bzw. zum Speichern von Referenzfotos)
-- DragnDrop-Knöpfe implementieren
-
 @author: chris
 '''
 
