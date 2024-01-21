@@ -4,15 +4,10 @@
 from __future__ import division
 from __future__ import print_function
 from __future__ import unicode_literals
-#from future_builtins import *
 
-# from PySide6.QtCore import *
-# from PySide6.QtGui import *
-from PySide6.QtSql import *
-from PySide6.QtCore import (QAbstractTableModel, QDataStream, QFile,
-        QIODevice, QModelIndex, QSize, Qt)
-from PySide6.QtGui import (QColor, QTextDocument)
-from PySide6.QtWidgets import (QApplication, QStyle, QAbstractItemDelegate, QComboBox, QLineEdit,
+from PySide6.QtSql import QSqlTableModel
+from PySide6.QtCore import Qt
+from PySide6.QtWidgets import (QComboBox, QLineEdit,
         QSpinBox, QStyledItemDelegate, QTextEdit)
 
 
