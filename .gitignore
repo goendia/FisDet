@@ -4,3 +4,4 @@ Dokumente/
 build/
 dist/
 *.bin
+.idea/
