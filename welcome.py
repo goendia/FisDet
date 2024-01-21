@@ -1,19 +1,10 @@
 # -*- coding: utf-8 -*-
 
-import sys
-import xlwt
-# import win32gui
-import re
-from PySide6 import QtCore, QtGui, QtSql
-
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QColor
-from PySide6.QtWidgets import (QMainWindow, QMessageBox, QApplication, QFileDialog, QDialog)
-from PySide6.QtSql import QSqlTableModel, QSqlDatabase, QSqlQuery
+from PySide6.QtWidgets import QMainWindow, QDialog
 
 # import the class for the export dialog
 from exportdialog import ExportDialog
-
 from ui_welcome import Ui_Welcome
 
 #from mainwindow import MyWindow
@@ -21,7 +12,7 @@ from ui_welcome import Ui_Welcome
 
 class Welcome(QMainWindow, Ui_Welcome):
     def __init__(self, parent=None):
-        QMainWindow.__init__(self, parent, QtCore.Qt.WindowStaysOnTopHint)
+        QMainWindow.__init__(self, parent, Qt.WindowStaysOnTopHint)
         self.dialog = QDialog(parent)
         self.setupUi(self)
 
