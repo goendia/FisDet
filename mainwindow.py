@@ -5,16 +5,11 @@ Created on Fri Jun 20 15:10:08 2014
 '''
 
 import sys
-import xlwt
-# import win32gui
-import re
 from PySide6 import QtCore, QtGui, QtSql
 
-from PySide6.QtCore import Qt
-# from PySide6.QtGui import QMainWindow, qApp, QMessageBox, QApplication, QColor, QFileDialog
-from PySide6.QtGui import QColor
+from PySide6.QtCore import QSettings
 from PySide6.QtWidgets import (QMainWindow, QMessageBox, QApplication, QFileDialog)
-from PySide6.QtSql import QSqlTableModel, QSqlDatabase, QSqlQuery
+from PySide6.QtSql import QSqlTableModel
 
 from editor import Editor
 from welcome import Welcome
@@ -22,15 +17,11 @@ from welcome import Welcome
 from model import Model
 from already_running import QSingleApplication
 from ui_mainwindow import Ui_MainWindow
-from PySide6.QtCore import QSettings
-
-
 
 ID, NAME, DATUM, ART, LAENGE, VERHALTEN, BEMERKUNG, ANTWORT, TRUEBUNG, TURBULENZ, FARBE, LOG, ID_SERVER = range(13)
 ID, DB_TYPE, BUILD_DATE = range(3)
 verhaltenDictionary = {"kvogno":"00-1", "ab":"-100", "unklar":"010", "auf":"100", "kvugnu":"001",
                         "vuiBox": "002", "voiBox":"00-2", "BiB":"020", "Boxauf":"200", "Boxab":"-200"}
-
 
 class MyWindow(QMainWindow, Ui_MainWindow):
 
