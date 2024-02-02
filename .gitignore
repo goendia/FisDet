@@ -6,3 +6,4 @@ dist/
 *.bin
 .idea/
 *.spec
+__pycache__/
