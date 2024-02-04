@@ -35,6 +35,7 @@ jobs:
           nuitka-version: main
           script-name: mainwindow.py
           onefile: false
+          standalone: true
           enable-plugins: pyside6
 
       - name: Upload Artifacts
