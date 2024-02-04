@@ -28,6 +28,8 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install -r requirements.txt
+        if: os == 'macos-latest'
+          run: brew install openssl@3.1.5
 
       - name: Build Executable
         uses: Nuitka/Nuitka-Action@main
