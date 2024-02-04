@@ -10,12 +10,21 @@ jobs:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
 
-    runs-on: ${{ matrix.os }}
+    runs-on: macos-latest #${{ matrix.os }}
 
     steps:
       - name: Check-out repository
         uses: actions/checkout@v3
-
+      # if: matrix.os == 'macos-latest' run brew install openssl
+      - name: Install OpenSSL
+        if: matrix.os == 'macos-latest'
+        run: |
+          brew update
+          brew install openssl
+          export LDFLAGS="-L/usr/local/opt/openssl/lib"
+          export CPPFLAGS="-I/usr/local/opt/openssl/include"
+          export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
+          export PATH="/usr/local/opt/openssl/bin:$PATH"
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
