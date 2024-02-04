@@ -33,8 +33,9 @@ jobs:
         uses: Nuitka/Nuitka-Action@main
         with:
           nuitka-version: main
-          script-name: kasa_cli
+          script-name: mainwindow.py
           onefile: true
+          enable-plugins: pyside6
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
