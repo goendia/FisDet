@@ -10,7 +10,7 @@ jobs:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
 
-    runs-on: macos-latest #${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Check-out repository
@@ -21,8 +21,8 @@ jobs:
         run: |
           brew update
           brew install openssl
-          ln -s /usr/local/opt/openssl/lib/libcrypto.*.dylib /usr/local/lib/
-          ln -s /usr/local/opt/openssl/lib/libssl.*.dylib /usr/local/lib/
+          export LDFLAGS="-L/usr/local/opt/openssl@3/lib"
+          export CPPFLAGS="-I/usr/local/opt/openssl@3/include"
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
