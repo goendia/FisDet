@@ -19,10 +19,8 @@ jobs:
       - name: Install OpenSSL
         if: matrix.os == 'macos-latest'
         run: |
-          brew update
-          brew install openssl
-          export LDFLAGS="-L/usr/local/opt/openssl@3/lib"
-          export CPPFLAGS="-I/usr/local/opt/openssl@3/include"
+          brew install rbenv/tap/openssl@1.0
+          ln -sfn /usr/local/Cellar/openssl@1.0/1.0.2t /usr/local/opt/openssl
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
