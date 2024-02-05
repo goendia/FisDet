@@ -21,7 +21,8 @@ jobs:
         run: |
           brew update
           brew install openssl
-          brew link --force openssl
+          ln -s /usr/local/opt/openssl/lib/libcrypto.*.dylib /usr/local/lib/
+          ln -s /usr/local/opt/openssl/lib/libssl.*.dylib /usr/local/lib/
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
