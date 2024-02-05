@@ -35,7 +35,8 @@ jobs:
           script-name: mainwindow.py
           onefile: true
           standalone: true
-          enable-plugins: pyside6
+          #enable-plugins: pyside6
+          include-qt-plugins: iconengines,imageformats,platforms,styles
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
