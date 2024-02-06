@@ -36,7 +36,8 @@ jobs:
           onefile: true
           standalone: true
           enable-plugins: pyside6
-          noinclude-qt-plugins: tls, ssl
+          noinclude-qt-plugins: tls
+          noinclude-qt-plugins: ssl
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
