@@ -36,7 +36,7 @@ jobs:
           onefile: true
           standalone: true
           enable-plugins: pyside6
-          disable-plugin: PySide6.QtNetwork.Tls
+          noinclude-qt-plugins: PySide6.QtNetwork.Tls
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
