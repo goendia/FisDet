@@ -12,13 +12,19 @@ jobs:
 
     runs-on: ${{ matrix.os }}
 
+    # Only run on MacOS
+    if: matrix.os == 'macos-latest'
+
     steps:
-      - name: Check-out repository
-        uses: actions/checkout@v3
       - name: Setup OpenSSL on MacOS
         if: matrix.os == 'macos-latest'
         run: |
-          cp /usr/local/opt/openssl@3/lib/pkgconfig/*.pc /usr/local/lib/pkgconfig/
+          brew uninstall openssl 
+          brew uninstall openssl
+          brew install openssl@1.1
+          openssl -version
+      - name: Check-out repository
+        uses: actions/checkout@v3
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
