@@ -36,6 +36,7 @@ jobs:
           onefile: true
           standalone: true
           enable-plugins: pyside6
+          include-qt-plugins: sqldrivers
           noinclude-qt-plugins: ssl
 
       - name: Upload Artifacts
