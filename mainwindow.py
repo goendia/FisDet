@@ -752,7 +752,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             else:
                 if self.fischart or self.fischlaenge is not None:
                     row = self.model.rowCount()
+                    print(row)
                     lastid = self.model.data(self.model.index(row-1, ID))
+                    print(lastid)
 
                     '''
                     record = QtSql.QSqlRecord()
@@ -791,17 +793,17 @@ class MyWindow(QMainWindow, Ui_MainWindow):
                         # TODO: Implement sub database type in insertSql function?
                         # TODO: Find a better method for inserting, maybe QSqlRecord?
                         # TODO: Whats with the built-in ROWID of SQLite, can i use it instead of IDs in server database? Check it out.
-                        '''
-                        if self.databaseType == "server":
-                            if row == 0:
-                                self.model.setData(self.model.index(row, ID), 1)
-                            elif x > 0:
-                                lastid += 1
-                                self.model.setData(self.model.index(row, ID), int(lastid))
-                            else:
-                                QtGui.QMessageBox.warning(self, "Warnung",
-                                      u"Hier liegt ein Fehler vor. Bitte kontaktieren Sie umgehend den Softwarehersteller!")
-                        '''
+                        if row == 0:
+                            self.model.setData(self.model.index(row, ID), 1)
+                        elif row > 0:
+                            lastid += 1
+                            self.model.setData(self.model.index(row, ID), int(lastid))
+                        elif x > 0:
+                            lastid += 1
+                            self.model.setData(self.model.index(row, ID), int(lastid))
+                        else:
+                            QMessageBox.warning(self, "Warnung",
+                                    u"Hier liegt ein Fehler vor. Bitte kontaktieren Sie umgehend den Softwarehersteller!")
                         '''
                         #################################
                         # testing QSqlRecord() ##########
