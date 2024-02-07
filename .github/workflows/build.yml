@@ -10,7 +10,7 @@ jobs:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
 
-    runs-on: ${{ matrix.os }}
+    runs-on: matrix.os == windows-latest
 
     steps:
       - name: Setup OpenSSL on MacOS
