@@ -12,9 +12,6 @@ jobs:
 
     runs-on: ${{ matrix.os }}
 
-    # Only run on MacOS
-    if: matrix.os == 'macos-latest'
-
     steps:
       - name: Setup OpenSSL on MacOS
         if: matrix.os == 'macos-latest'
