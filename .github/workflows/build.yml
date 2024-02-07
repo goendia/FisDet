@@ -15,6 +15,10 @@ jobs:
     steps:
       - name: Check-out repository
         uses: actions/checkout@v3
+      - name: Setup OpenSSL on MacOS
+        if: matrix.os == 'macos-latest'
+        run: |
+          cp /usr/local/opt/openssl@3/lib/pkgconfig/*.pc /usr/local/lib/pkgconfig/
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
@@ -36,7 +40,7 @@ jobs:
           onefile: true
           standalone: true
           enable-plugins: pyside6
-          include-qt-plugins: all
+          include-qt-plugins: sqldrivers
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
