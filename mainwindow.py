@@ -201,7 +201,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         # Erstellen einer neuen sub-Datenbank
         self.actionSub_DB.triggered.connect(self.createNewDatabase)
         # Erstellen einer neuen server-Datenbank
-        self.actionServer_DB.triggered.connect(lambda: self.createNewDatabase(db_type="server"))
+        self.actionServer_DB.triggered.connect(lambda: self.createNewDatabase(dbType="server"))
         # Laden einer Datenbank
         self.action_Laden.triggered.connect(self.openDatabase)
         # Öffnen des Editors
