@@ -16,9 +16,6 @@ jobs:
       - name: Setup OpenSSL on MacOS
         if: matrix.os == 'macos-latest'
         run: |
-          brew update
-          brew install openssl
-          openssl -version
           export LDFLAGS="-L/opt/homebrew/opt/curl/lib -L/opt/homebrew/opt/openssl/lib"
           export CPPFLAGS="-I/opt/homebrew/opt/curl/include -I/user/local/opt/openssl/include"
 
