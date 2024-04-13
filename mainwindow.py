@@ -199,9 +199,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
         ################### Menü-Dialog ##########################
         # Erstellen einer neuen sub-Datenbank
-        self.actionSub_DB.triggered.connect(self.createNewDatabase)
+        self.actionSub_DB.triggered.connect(self.createNewDatabase(dbType="sub"))
         # Erstellen einer neuen server-Datenbank
-        self.actionServer_DB.triggered.connect(lambda: self.createNewDatabase(db_type="server"))
+        self.actionServer_DB.triggered.connect(lambda: self.createNewDatabase(dbType="server"))
         # Laden einer Datenbank
         self.action_Laden.triggered.connect(self.openDatabase)
         # Öffnen des Editors
@@ -869,7 +869,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
                         self.model.insertRecord(-1, record)
                         '''
 
-
+                        self.model.setData(self.model.index(row, ID), None)
                         self.model.setData(self.model.index(row, NAME), self.editProtokollant.text())
                         self.model.setData(self.model.index(row, DATUM), self.timestamp)
                         self.model.setData(self.model.index(row, ART), self.fischart)
