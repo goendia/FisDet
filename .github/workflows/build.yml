@@ -41,6 +41,7 @@ jobs:
           script-name: mainwindow.py
           onefile: true
           standalone: true
+          disable-console: true
           enable-plugins: pyside6
           include-qt-plugins: sqldrivers
 
