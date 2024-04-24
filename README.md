@@ -5,3 +5,10 @@ However, due to the advancements in technology, there are now better software op
 Despite its outdated nature, the software was recently ported to Qt6.
 It is written in Qt6, which provides a robust framework for developing cross-platform applications with ease.
 
+|![alt mainwindow](https://github.com/goendia/FisDet/blob/main/FisDet-mainwindow-dark.png?raw=true)|
+|:--:| 
+|*main window*|
+
+|![alt editor](https://github.com/goendia/FisDet/blob/main/FisDet-editor-dark.png?raw=true)|
+|:--:| 
+|*editor window*|
